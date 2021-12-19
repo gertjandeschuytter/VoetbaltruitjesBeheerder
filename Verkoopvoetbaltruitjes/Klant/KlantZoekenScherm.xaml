@@ -1,0 +1,59 @@
+﻿<Window x:Class="Verkoopvoetbaltruitjes.Klant.KlantZoekenScherm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Verkoopvoetbaltruitjes.Klant"
+        mc:Ignorable="d"
+        Title="KlantZoekenScherm" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content = "Ga terug" Click = "Ga_terug_home" Grid.Row = "0" HorizontalAlignment="Left" Margin="-10,-10,0,10" />
+            <TextBlock Text="Id" Grid.Row="1" Margin="-5,0,10,0"/>
+            <TextBox Name="Id" Text="" Grid.Row="1" MinWidth="20" Margin="12,0,0,21"/>
+            <TextBlock Text="Naam" Grid.Row="1" Grid.Column="2" Margin="5,0,30,0"/>
+            <TextBox Name="Name"  Grid.Row="1" Text="" Grid.Column="2" Grid.ColumnSpan="2" Margin="42,0,25,21"/>
+            <TextBlock Text="Adres" Grid.Row="1" Grid.Column="4" Margin="0,0,35,0" RenderTransformOrigin="-0.567,0.465"/>
+            <TextBox Name="Adres" Text="" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Margin="35,0,60,21"/>
+
+            <Button Name="SearchBtn" Click="SearchBtn_Click" FontFamily="Segoe Fluent Icons" Content="&#xe721;" Grid.Column="5" Width="45" Height="42" 
+                    HorizontalAlignment="Left" Margin="249,17,0,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        </Grid>
+        <DataGrid Name="DataGridCustomers" Grid.Row="1" Margin="10" CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
+                  CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding KlantId, Mode=OneWay}" CanUserResize="False"/>
+                <DataGridTextColumn Header="Naam" Binding="{Binding Naam, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Adres" Binding="{Binding Adres, Mode=OneWay}"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <ContextMenu x:Key="ContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Name="UpdateCustomer" Header="Aanpassen" Click="UpdateCustomer_Click"/>
+                    <MenuItem Name="DeleteCustomer" Header="Verwijderen" Click="DeleteCustomer_Click"/>
+                </ContextMenu>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="ContextMenu" Value="{StaticResource ContextMenu}"/>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+    </Grid>
+</Window>

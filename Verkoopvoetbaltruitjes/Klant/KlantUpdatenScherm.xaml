@@ -1,0 +1,38 @@
+﻿<Window x:Class="Verkoopvoetbaltruitjes.Klant.KlantUpdatenScherm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Verkoopvoetbaltruitjes.Klant"
+        mc:Ignorable="d"
+        Title="KlantUpdatenScherm" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Content = "Ga terug" Click = "Ga_terug_home" Grid.Row = "0" HorizontalAlignment="Left" Margin="-10,-10,0,10" />
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Naam" Margin="0,0,5,10"/>
+            <TextBox Name="Naam" Text="" Grid.Column="1" Margin="0,0,0,10"/>
+            <TextBlock Text="Adres" Grid.Row="1" Margin="0,0,5,0"/>
+            <TextBox Name="Adres" Text="" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10"/>
+
+            <Button Name="EditBtn" Click="EditBtn_Click" FontFamily="Segoe Fluent Icons" Content="&#xe70f;" Grid.Row="2" Grid.Column="5" Width="25" Height="25" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</Window>

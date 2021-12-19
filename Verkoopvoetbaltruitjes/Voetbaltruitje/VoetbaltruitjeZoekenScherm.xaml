@@ -1,0 +1,89 @@
+﻿<Window x:Class="Verkoopvoetbaltruitjes.Voetbaltruitje.VoetbaltruitjeZoekenScherm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Verkoopvoetbaltruitjes.Voetbaltruitje"
+        mc:Ignorable="d"
+        Title="VoetbaltruitjeZoekenScherm" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Content="Ga terug" Click="Ga_terug_home" Grid.Row="0"/>
+        <TextBlock Text="Competitie" Margin="10,8,10,8" Grid.Row="1"/>
+        <ComboBox Name="ComboBoxCompetitie" Grid.Column="1" Margin="10,5,10,11" SelectionChanged="ComboBoxCompetitie_SelectionChanged" Loaded="ComboBoxCompetitie_Loaded" Grid.Row="1"/>
+
+        <TextBlock Text="Ploeg" Margin="10,7,10,15" Grid.Column="2" Grid.Row="1"/>
+        <ComboBox Name="ComboBoxPloeg" Grid.Column="3" Margin="10,7,10,9" Grid.Row="1"/>
+
+        <TextBlock Text="Seizoen" Grid.Row="3" Margin="10,13,10,21"/>
+        <TextBox Name="Seizoen" Grid.Row="3" Grid.Column="1" Margin="10,13,10,21"/>
+
+        <TextBlock Text="Prijs" Margin="10,13,10,21" Grid.Row="3" Grid.Column="2"/>
+        <TextBox Name="Prijs" Grid.Row="3" Grid.Column="3" Margin="10,13,10,21"/>
+
+        <TextBlock Text="Id" Grid.Row="4" Margin="25,4,302,25" Grid.ColumnSpan="2" Grid.Column="2"/>
+        <TextBox Name="Id" Grid.Row="4" Grid.Column="3" Margin="10,4,274,23"/>
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Name="Thuis" Content="Thuis" Margin="10,59,10,-39"/>
+            <CheckBox Name="Uit" Content="Uit" Margin="10,59,10,-39" Grid.Column="1"/>
+
+            <TextBlock Text="Versie" Grid.Column="2" Margin="20,57,73,-37" Grid.ColumnSpan="2"/>
+            <TextBox Name="Versie" Grid.Column="3" Margin="57,57,0,-37" Grid.ColumnSpan="2"/>
+
+            <TextBlock Text="Maat" Grid.Column="5" Margin="26,57,73,-37"/>
+            <ComboBox Name="ComboBoxMaat" Grid.Column="5" Loaded="ComboBoxMaat_Loaded" Margin="72,54,15,-34"/>
+        </Grid>
+
+        <Button Name="SearchBtn" Click="SearchBtn_Click" FontFamily="Segoe Fluent Icons" Content="&#xe721;" Grid.Row="4" Grid.Column="3" Width="25" Height="25" Margin="10"
+                    HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+        <DataGrid Name="DataGridTruitjes" Grid.Row="5" Grid.ColumnSpan="4" Margin="10" CanUserReorderColumns="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedRow, Mode=OneWay}" 
+                  CanUserSortColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id, Mode=OneWay}" CanUserResize="False"/>
+                <DataGridTextColumn Header="Competitie" Binding="{Binding Club.Competitie, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Ploeg" Binding="{Binding Club.Ploeg, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Seizoen" Binding="{Binding Seizoen, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Prijs" Binding="{Binding Prijs, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Kledingmaat" Binding="{Binding Kledingmaat, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Thuis" Binding="{Binding ClubSet.Thuis, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Versie" Binding="{Binding ClubSet.Versie, Mode=OneWay}"/>
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <ContextMenu x:Key="ContextMenu" DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                    <MenuItem Name="UpdateVoetbaltruitje" Header="Aanpassen" Click="UpdateVoetbaltruitje_Click"/>
+                    <MenuItem Name="DeleteVoetbaltruitje" Header="Verwijderen" Click="DeleteVoetbaltruitje_Click"/>
+                </ContextMenu>
+            </DataGrid.Resources>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="ContextMenu" Value="{StaticResource ContextMenu}"/>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+    </Grid>
+</Window>

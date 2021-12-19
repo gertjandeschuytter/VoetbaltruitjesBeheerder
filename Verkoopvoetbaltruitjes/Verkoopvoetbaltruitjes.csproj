@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="cercle.png" />
+    <None Remove="Media\account.png" />
+    <None Remove="Media\basket-fill.png" />
+    <None Remove="Media\cercle.png" />
+    <None Remove="Media\chelsea_shirt.jpg" />
+    <None Remove="Media\EA_Sports_logo.png" />
+    <None Remove="Media\feature-search.png" />
+    <None Remove="Media\jpl.jpg" />
+    <None Remove="Media\liverpool_shirt.png" />
+    <None Remove="Media\plus-box-multiple.png" />
+    <None Remove="Media\truitje_cercle.jpg" />
+    <None Remove="Media\tshirt-crew-outline.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Exceptionless" Version="4.6.2" />
+    <PackageReference Include="NSwag.Core" Version="13.15.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer_VoetbaltruitjesWinkel\BusinessLayer_VoetbaltruitjesWinkel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="cercle.png" />
+    <Resource Include="Media\account.png" />
+    <Resource Include="Media\basket-fill.png" />
+    <Resource Include="Media\cercle.png" />
+    <Resource Include="Media\chelsea_shirt.jpg" />
+    <Resource Include="Media\EA_Sports_logo.png" />
+    <Resource Include="Media\feature-search.png" />
+    <Resource Include="Media\jpl.jpg" />
+    <Resource Include="Media\liverpool_shirt.png" />
+    <Resource Include="Media\plus-box-multiple.png" />
+    <Resource Include="Media\truitje_cercle.jpg" />
+    <Resource Include="Media\tshirt-crew-outline.png" />
+  </ItemGroup>
+
+</Project>
