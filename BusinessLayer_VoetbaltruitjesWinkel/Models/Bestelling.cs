@@ -36,18 +36,23 @@ namespace BusinessLayer.Model {
             ZetKlant(klant);
             ZetBetaald(betaald);
             _producten = producten;
-            Prijs = prijs;
+            ZetPrijs(prijs);
         }
         public Bestelling(Klant klant, DateTime tijdstip, bool betaald, Dictionary<Voetbaltruitje, int> producten, double prijs) : this(tijdstip) {
             _producten = producten;
             ZetKlant(klant);
-            Prijs = prijs;
+            ZetPrijs(prijs);
             ZetBetaald(betaald);
         }
         public Bestelling(DateTime tijdstip) {
             ZetTijdstip(tijdstip);
         }
 
+        public void ZetPrijs(double prijs)
+        {
+            if (prijs <= 0) throw new BestellingException("Bestelling: Prijs mag niet kleiner zijn dan 0");
+            this.Prijs = prijs;
+        }
         // methods (done)
         public void ZetTijdstip(DateTime tijdstip) {
             if (tijdstip.GetHashCode() == 0) throw new BestellingException("Bestelling: Tijdstip klopt niet");
@@ -98,7 +103,7 @@ namespace BusinessLayer.Model {
             _producten = producten;
         }
         public void ZetBestellingId(int id) {
-            if (id <= 0) throw new VoetbaltruitjeException("Voetbaltruitje - invalid id");
+            if (id <= 0) throw new BestellingException("Bestelling - invalid id");
             this.BestellingId = id;
         }
         public void ZetBetaald(bool betaald) {

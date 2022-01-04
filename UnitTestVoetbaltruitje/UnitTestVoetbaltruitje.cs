@@ -12,11 +12,25 @@ namespace TestProjectBusinessLayer
 {
     public class UnitTestVoetbaltruitje
     {
+
         [Fact]
         public void Test_ctor_noId_Valid()
         {
             Voetbaltruitje truitje = new Voetbaltruitje(new Club("premier league","city"), "2021-2022", 87, Kledingmaat.M, new ClubSet(true, 1));
 
+            Assert.Equal("premier league", truitje.Club.Competitie);
+            Assert.Equal("city", truitje.Club.Ploeg);
+            Assert.Equal("2021-2022", truitje.Seizoen);
+            Assert.Equal(87, truitje.Prijs);
+            Assert.Equal(Kledingmaat.M, truitje.Kledingmaat);
+            Assert.True(truitje.ClubSet.Thuis);
+            Assert.Equal(1, truitje.ClubSet.Versie);
+        }
+        [Fact]
+        public void Test_ctor_Id_Valid()
+        {
+            Voetbaltruitje truitje = new Voetbaltruitje(10, new Club("premier league", "city"), "2021-2022", 87, Kledingmaat.M, new ClubSet(true, 1));
+            Assert.Equal(10, truitje.Id);
             Assert.Equal("premier league", truitje.Club.Competitie);
             Assert.Equal("city", truitje.Club.Ploeg);
             Assert.Equal("2021-2022", truitje.Seizoen);
@@ -39,18 +53,6 @@ namespace TestProjectBusinessLayer
         [Fact]
         public void Test_ctor_noId_noClubSet_InValid() {
             Assert.Throws<VoetbaltruitjeException>(() => new Voetbaltruitje(new Club("premier league", "city"), "2021-2022", 87, Kledingmaat.M, null));
-        }
-        [Fact]
-        public void Test_ctor_Id_Valid() {
-            Voetbaltruitje truitje = new Voetbaltruitje(10, new Club("premier league", "city"), "2021-2022", 87, Kledingmaat.M, new ClubSet(true, 1));
-            Assert.Equal(10, truitje.Id);
-            Assert.Equal("premier league", truitje.Club.Competitie);
-            Assert.Equal("city", truitje.Club.Ploeg);
-            Assert.Equal("2021-2022", truitje.Seizoen);
-            Assert.Equal(87, truitje.Prijs);
-            Assert.Equal(Kledingmaat.M, truitje.Kledingmaat);
-            Assert.True(truitje.ClubSet.Thuis);
-            Assert.Equal(1, truitje.ClubSet.Versie);
         }
         [Theory]
         [InlineData(10, -10.5)]

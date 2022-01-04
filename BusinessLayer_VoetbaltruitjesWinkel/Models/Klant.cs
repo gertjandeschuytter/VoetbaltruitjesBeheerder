@@ -56,8 +56,8 @@ namespace BusinessLayer.Model
         }
         public void VerwijderBestelling(Bestelling bestelling)
         {
-            if (bestelling == null) throw new BestellingException("Klant : VerwijderBestelling - Bestelling is null");
-            if (!_bestellingen.Contains(bestelling)) throw new BestellingException("Klant : VerwijderBestelling - bestelling bestaat niet");
+            if (bestelling == null) throw new KlantException("Klant : VerwijderBestelling - Bestelling is null");
+            if (!_bestellingen.Contains(bestelling)) throw new KlantException("Klant : VerwijderBestelling - bestelling bestaat niet");
             else if (bestelling.Klant == this) bestelling.VerwijderKlant();
             _bestellingen.Remove(bestelling);
         }
@@ -99,19 +99,18 @@ namespace BusinessLayer.Model
         }
         public void ZetAdres(string adres)
         {
-            if (adres.Length < 5) throw new KlantException("Adres moet minstens 5 karakters lang zijn");
-            if (string.IsNullOrEmpty(adres)) throw new KlantException("Adres mag niet leeg zijn");
+            if (string.IsNullOrWhiteSpace(adres)) throw new KlantException("Klant: Adres is leeg!");
             this.Adres = adres;
         }
         public void ZetKlantId(int id)
         {
-            if (id < 0) throw new KlantException("KlantId moet groter zijn dan 0");
+            if (id <= 0) throw new KlantException("Klant: KlantId is onder 1");
             this.KlantId = id;
         }
         public void ZetNaam(string naam)
         {
-            if (string.IsNullOrEmpty(naam)) throw new KlantException("Naam mag niet leeg zijn");
-            this.Naam = naam;
+            if (string.IsNullOrWhiteSpace(naam)) throw new KlantException("Klant: Naam moet langer dan 1 letter zijn!");
+            Naam = naam;
         }
         public int GeefAantalBestellingen()
         {
