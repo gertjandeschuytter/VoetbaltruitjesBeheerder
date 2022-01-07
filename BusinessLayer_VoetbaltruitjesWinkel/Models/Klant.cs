@@ -61,26 +61,28 @@ namespace BusinessLayer.Model
             else if (bestelling.Klant == this) bestelling.VerwijderKlant();
             _bestellingen.Remove(bestelling);
         }
-        public string ToText(bool kort = true)
-        {
-            if (kort)
-                return $"[Klant] {KlantId},{Naam},{Adres},{_bestellingen.Count}";
-            else
-            {
-                string res = $"[Klant] {KlantId},{Naam},{Adres},{_bestellingen.Count}";
-                foreach (var x in _bestellingen)
-                {
-                    res += $"\n{x}";
-                }
-                return res;
-            }
-        }
+        //public string ToText(bool kort = true)
+        //{
+        //    if (kort)
+        //        return $"[Klant] {KlantId},{Naam},{Adres},{_bestellingen.Count}";
+        //    else
+        //    {
+        //        string res = $"[Klant] {KlantId},{Naam},{Adres},{_bestellingen.Count}";
+        //        foreach (var x in _bestellingen)
+        //        {
+        //            res += $"\n{x}";
+        //        }
+        //        return res;
+        //    }
+        //}
 
         public void VoegToeBestelling(Bestelling bestelling)
         {
             if (bestelling == null) throw new BestellingException("Klant : VoegToeBestelling - bestelling is null");
-            if (HeeftBestelling(bestelling)) throw new BestellingException("Bestelling bestaat al");
-            else _bestellingen.Add(bestelling);
+            if (!HeeftBestelling(bestelling))
+            {
+                _bestellingen.Add(bestelling);
+            }
             if (bestelling.Klant != this)
             {
                 bestelling.ZetKlant(this);
@@ -119,13 +121,7 @@ namespace BusinessLayer.Model
         }
         public override string ToString()
         {
-            //return $"[Klant] {KlantId},{Naam},{Adres},{_bestellingen.Count}";
-            string res = $"[Klant] {KlantId},{Naam},{Adres},{_bestellingen.Count}";
-            foreach (var x in _bestellingen)
-            {
-                res += $"\n{x}";
-            }
-            return res;
+            return $"Naam: {Naam}\nKlantenNummer: {KlantId}\nAdres: {Adres}";
         }
     }
 }

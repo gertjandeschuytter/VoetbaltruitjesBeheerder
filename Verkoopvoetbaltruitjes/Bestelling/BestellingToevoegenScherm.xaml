@@ -25,12 +25,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-
-            <TextBlock Text="Klant" Margin="0,0,5,10"/>
+            <Button Content="Ga terug" Click="Ga_terug_home" Grid.Row="0" Margin="-11,-11,13,25"/>
+            <TextBlock Text="Klant" Margin="7,5,575,5" Grid.ColumnSpan="2"/>
             <TextBox Name="Customer" IsReadOnly="True" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,5,10"/>
             <Button Name="SelectCustomerBtn" Content="Selecteer klant" Click="SelectCustomerBtn_Click" Grid.Column="3"/>
 
-            <TextBlock Text="Prijs" Grid.Row="1" Margin="0,0,5,10"/>
+            <TextBlock Text="Prijs" Grid.Row="1" Margin="7,0,575,10" Grid.ColumnSpan="2"/>
             <TextBox Name="Price" IsReadOnly="True" Grid.Row="1" Grid.Column="1" Margin="0,0,5,10" Loaded="Price_Loaded"/>
             <CheckBox Name="IsPayed" Content="Betaald" Grid.Row="1" Grid.Column="2" Margin="0,0,5,10"/>
             <Button Name="SelectTruitjeBtn" Content="Selecteer truitje" Click="SelectTruitjeBtn_Click" Grid.Row="1" Grid.Column="3"/>

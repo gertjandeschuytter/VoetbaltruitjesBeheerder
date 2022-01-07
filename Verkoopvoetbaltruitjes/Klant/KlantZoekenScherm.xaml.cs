@@ -68,6 +68,7 @@ namespace Verkoopvoetbaltruitjes.Klant {
                 MessageBox.Show(ex.Message, Title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void Ga_terug_home(object sender, RoutedEventArgs e) {
             KlantHoofdScherm kh = new();
             kh.Show();

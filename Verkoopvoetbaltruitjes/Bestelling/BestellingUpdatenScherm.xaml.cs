@@ -30,7 +30,7 @@ namespace Verkoopvoetbaltruitjes.Bestelling
         {
             if (_geselecteerdeBestellingUpdate != null)
             {
-                Customer.Text = _geselecteerdeBestellingUpdate.Klant.ToText(true);
+                Customer.Text = _geselecteerdeBestellingUpdate.Klant.ToString();
                 IsPayed.IsChecked = _geselecteerdeBestellingUpdate.Betaald;
                 Price.Text = _geselecteerdeBestellingUpdate.Prijs.ToString();
             }

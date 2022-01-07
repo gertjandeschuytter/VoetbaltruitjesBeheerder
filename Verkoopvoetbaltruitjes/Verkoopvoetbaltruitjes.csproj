@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer_VoetbaltruitjesWinkel\BusinessLayer_VoetbaltruitjesWinkel.csproj" />
+    <ProjectReference Include="..\DataLayer_voetbaltruitje\DataLayer_voetbaltruitje.csproj" />
   </ItemGroup>
 
   <ItemGroup>

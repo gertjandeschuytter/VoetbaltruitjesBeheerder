@@ -51,7 +51,7 @@ namespace BusinessLayer.Model {
         public void ZetPrijs(double prijs)
         {
             if (prijs <= 0) throw new BestellingException("Bestelling: Prijs mag niet kleiner zijn dan 0");
-            this.Prijs = prijs;
+            this.Prijs = Kostprijs();
         }
         // methods (done)
         public void ZetTijdstip(DateTime tijdstip) {
@@ -71,7 +71,7 @@ namespace BusinessLayer.Model {
             }
 
             foreach (KeyValuePair<Voetbaltruitje, int> kvp in _producten) {
-                prijs += kvp.Key.Prijs * kvp.Value * (1.0 - (korting / 100));
+                prijs += (kvp.Key.Prijs * kvp.Value) * (1.0 - (korting/100.00));
             }
             return prijs;
         }

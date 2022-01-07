@@ -73,7 +73,7 @@ namespace Verkoopvoetbaltruitjes.Bestelling {
 
         private void Page_Loaded(object sender, RoutedEventArgs e) {
             if (_klant != null) {
-                Customer.Text = _klant.ToText(true);
+                Customer.Text = _klant.ToString();
                 Application.Current.Properties["SavedKlant"] = _klant;
                 _klantSave = _klant;
             }
@@ -134,6 +134,12 @@ namespace Verkoopvoetbaltruitjes.Bestelling {
             }
         }
 
+        private void Ga_terug_home(object sender, RoutedEventArgs e)
+        {
+            BestellingenHoofdscherm hf = new();
+            hf.Show();
+            this.Close();
+        }
     }
 }
 

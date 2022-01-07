@@ -23,7 +23,7 @@ namespace Verkoopvoetbaltruitjes.Voetbaltruitje {
             InitializeComponent();
         }
         private void Goback_Click(object sender, RoutedEventArgs e) {
-            MainWindow mw = new();
+            VoetbaltruitjeHoofdScherm mw = new();
             mw.Show();
             this.Close();
         }

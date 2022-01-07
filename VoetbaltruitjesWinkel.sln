@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestVoetbaltruitje", "U
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VerkoopTestConsole", "VerkoopTestConsole\VerkoopTestConsole.csproj", "{0E3D7F4C-05DE-4CFF-B5C0-ADFB9FBDA942}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verkoopvoetbaltruitjes", "Verkoopvoetbaltruitjes\Verkoopvoetbaltruitjes.csproj", "{5735B674-7E44-4063-8BB6-98C1064D12BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Verkoopvoetbaltruitjes", "Verkoopvoetbaltruitjes\Verkoopvoetbaltruitjes.csproj", "{5735B674-7E44-4063-8BB6-98C1064D12BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer_voetbaltruitje", "DataLayer_voetbaltruitje\DataLayer_voetbaltruitje.csproj", "{3D916CE8-F4A2-49BC-B179-7A35DF77389C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{5735B674-7E44-4063-8BB6-98C1064D12BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5735B674-7E44-4063-8BB6-98C1064D12BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5735B674-7E44-4063-8BB6-98C1064D12BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D916CE8-F4A2-49BC-B179-7A35DF77389C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D916CE8-F4A2-49BC-B179-7A35DF77389C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D916CE8-F4A2-49BC-B179-7A35DF77389C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D916CE8-F4A2-49BC-B179-7A35DF77389C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
